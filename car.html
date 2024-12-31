@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cars</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            text-align: center;
+            background-color: #f9f9f9;
+        }
+        header {
+            background-color: #ff5733;
+            color: #ffffff;
+            padding: 15px 10px;
+        }
+        select {
+            margin-top: 20px;
+            padding: 10px;
+            font-size: 16px;
+            background-color: #ffd700;
+            color: #333;
+            border: 2px solid #ff5733;
+            border-radius: 5px;
+        }
+        select:focus {
+            outline: none;
+            box-shadow: 0 0 5px #ff5733;
+        }
+        img {
+            margin-top: 50px;
+            max-width: 1000px;
+            height: auto;
+            display: none;
+            margin-left: auto;
+            margin-right: auto;
+        }
+    </style>
+    <script>
+        function showCarImage() {
+            const carImages = {
+                toyota: './toyotaRAV4.jpg',
+                honda: './hondaCRV.jpg',
+                bmw: './BMW.jpg',
+                mercedes: './merc.jpg',
+                audi: './audi.jpg',
+                tesla: './tesla.jpg'
+            };
+
+            const select = document.getElementById('car-brand');
+            const selectedBrand = select.value;
+            const carImage = document.getElementById('car-image');
+
+            if (carImages[selectedBrand]) {
+                carImage.src = carImages[selectedBrand];
+                carImage.style.display = 'block';
+            } else {
+                carImage.style.display = 'none';
+            }
+        }
+    </script>
+</head>
+<body>
+
+<header>
+    <h1>Welcome to my Car World</h1>
+</header>
+
+<main>
+    <label for="car-brand">Choose a car brand:</label>
+    <select id="car-brand" name="car-brand" onchange="showCarImage()">
+        <option value="" disabled selected>Select a brand</option>
+        <option value="toyota">Toyota</option>
+        <option value="honda">Honda</option>
+        <option value="bmw">BMW</option>
+        <option value="mercedes">Mercedes</option>
+        <option value="audi">Audi</option>
+        <option value="tesla">Tesla</option>
+    </select>
+    <img id="car-image" src="" alt="Car Image" style="width: 700px; height: auto;">
+
+</main>
+
+</body>
+</html>
